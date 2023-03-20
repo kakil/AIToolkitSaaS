@@ -10,6 +10,7 @@ import LoginScreen from './components/screens/LoginScreen';
 import RegisterScreen from './components/screens/RegisterScreen';
 import SummaryScreen from './components/screens/SummaryScreen';
 import ParagraphScreen from './components/screens/ParagraphScreen';
+import ChatbotScreen from './components/screens/ChatbotScreen';
 
 function App() {
   const theme = useMemo( () => createTheme(themeSettings()), []);
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/register" element={<RegisterScreen />} />
           <Route exact path="/summary" element={<SummaryScreen />} />
           <Route exact path="/paragraph" element={<ParagraphScreen />} />
+          <Route exact path="/chatbot" element={<ChatbotScreen />} />
         </Routes>
       </ThemeProvider>      
     </div>
