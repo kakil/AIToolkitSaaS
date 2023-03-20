@@ -28,6 +28,7 @@ const port = process.env.PORT || 4242;
 
 //connect the routes
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/openai', require('./routes/openai'));
 app.use(errorHandler);
 
 app.listen(port, () => { console.log(`Server is running on port ${port}`)});
