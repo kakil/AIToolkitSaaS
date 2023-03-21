@@ -7,7 +7,7 @@ const { register, login, logout, getRefreshToken, getSubscription, getCustomer }
 router.post("/register", register);
 router.post('/login', login);
 router.post('/logout', logout);
-// router.get('/refresh-token',getRefreshToken);
+router.get('/refresh-token',getRefreshToken);
 // router.get('/subscription', protect, getSubscription);
 // router.get('/customer', protect, getCustomer);
 

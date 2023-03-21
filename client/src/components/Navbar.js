@@ -1,10 +1,11 @@
 import React from 'react';
 import { Box, Link, Typography, useTheme } from '@mui/material';
 import axios from 'axios';
+import { useState } from 'react';
 
 const Navbar = () => {
     const theme = useTheme();
-    const loggedIn = JSON.parse(localStorage.getItem("authToken"));
+    const [loggedIn, setLoggedIn] = useState(JSON.parse(localStorage.getItem("authToken")));
 
     const logoutHandler = async () => {
         try {
@@ -20,6 +21,23 @@ const Navbar = () => {
             window.location.reload();
         }
     }
+
+    const checkRefresh = async () => {
+        try {
+            const token = await axios.get("/api/auth/refresh-token");
+
+            if(!token.data) {
+                localStorage.removeItem("authToken");
+                setLoggedIn(false);
+                logoutHandler();
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    checkRefresh();
+
     return (
         <Box width="100%" p="1rem 6%" backgroundColor={theme.palette.background.alt} textAlign="center" sx={{boxShadow:3, mb: 2}}>
             <Typography variant="h3" color="primary" fontWeight="bold"><Link href="/" underline="none">AI Toolkit SaaS</Link></Typography>
