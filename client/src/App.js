@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {Routes, Route} from 'react-router-dom';
 import { useMemo } from 'react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
@@ -13,26 +14,34 @@ import ParagraphScreen from './components/screens/ParagraphScreen';
 import ChatbotScreen from './components/screens/ChatbotScreen';
 import JavascriptScreen from './components/screens/JavascriptScreen';
 import ScifiScreen from './components/screens/ScifiScreen';
+import PrivateRoute from './components/routing/PrivateRoute';
+import NormalWrapper from './components/routing/NormalWrapper';
+
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}`);
 
 function App() {
-  const theme = useMemo( () => createTheme(themeSettings()), []);
+  const theme = useMemo(() => createTheme(themeSettings()), []);
   return (
-    <div className="App">
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Navbar />
-        <Routes>
-          <Route exact path="/" element={<HomeScreen />} />
-          <Route exact path="/login" element={<LoginScreen />} />
-          <Route exact path="/register" element={<RegisterScreen />} />
-          <Route exact path="/summary" element={<SummaryScreen />} />
-          <Route exact path="/paragraph" element={<ParagraphScreen />} />
-          <Route exact path="/chatbot" element={<ChatbotScreen />} />
-          <Route exact path="/js-convert" element={<JavascriptScreen />} />
-          <Route exact path="/scifi-img" element={<ScifiScreen />} />
-        </Routes>
-      </ThemeProvider>      
-    </div>
+    <Elements stripe={stripePromise}>
+      <div className="App">
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Navbar />
+          <Routes>
+            <Route exact path="/" element={<HomeScreen />} />
+            <Route exact path="/login" element={<LoginScreen />} />
+            <Route exact path="/register" element={<RegisterScreen />} />
+            <Route exact path="/summary" element={<PrivateRoute><NormalWrapper><SummaryScreen /></NormalWrapper></PrivateRoute>} />
+            <Route exact path="/paragraph" element={<ParagraphScreen />} />
+            <Route exact path="/chatbot" element={<ChatbotScreen />} />
+            <Route exact path="/js-convert" element={<JavascriptScreen />} />
+            <Route exact path="/scifi-img" element={<ScifiScreen />} />
+          </Routes>
+        </ThemeProvider>      
+      </div>
+    </Elements>
   );
 }
 

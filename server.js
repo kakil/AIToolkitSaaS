@@ -10,9 +10,16 @@ const cookieParser = require('cookie-parser');
 
 app.use(cors());
 app.use(cookieParser());
-app.use(express.json());
 app.use(bodyParser.urlencoded( {extended: true }));
-app.use(bodyParser.json( { extended: true }));
+
+
+var rawBodySaver = function (req, res, buf, encoding) {
+  if (buf && buf.length) {
+    req.rawBody = buf.toString(encoding || 'utf8');
+  }
+}
+
+app.use(bodyParser.json( { verify: rawBodySaver, extended: true }));
 
 //connect to database
 mongoose.set('strictQuery', true);
@@ -27,10 +34,12 @@ mongoose.set('strictQuery', true);
     
 
 const port = process.env.PORT || 4242;
+app.use(express.json());
 
 //connect the routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/openai', require('./routes/openai'));
+app.use('/api/stripe', require('./routes/stripe'));
 app.use(errorHandler);
 
 app.listen(port, () => { console.log(`Server is running on port ${port}`)});

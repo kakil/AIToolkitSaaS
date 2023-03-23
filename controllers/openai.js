@@ -7,7 +7,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 //summarize text
-exports.summarize = async (req, res) => {
+exports.summarize = async (req, res, next) => {
     const { text } = req.body;
 
     try {
@@ -29,7 +29,7 @@ exports.summarize = async (req, res) => {
             return res.status(404).json({ message: "No message in response" });
         }
     } catch (err) {
-        return res.status(404).json({ message: err.message});
+        next(err);
     }
 }
 

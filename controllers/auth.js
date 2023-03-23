@@ -101,19 +101,7 @@ exports.getCustomer = async (req, res, next) => {
     }
 }
 
-//
-exports.getRefreshToken = async (req, res, next) => {
-    
-    try {
-        const getToken = req.cookies.refreshToken;
 
-        if(getToken) {
-            const token = jwt.verify(getToken, process.env.JWT_REFRESH_SECRET);
-            const accessToken = jwt.sign({ id: token.id }, process.env.JWT_ACCESS_SECRET, { expiresIn: process.env.JWT_ACCESS_EXPIRE });
-            res.status(200).json({accessToken});
-        }
-    }catch (err) {
-        next(err);
-    }
-}
+
+
 
