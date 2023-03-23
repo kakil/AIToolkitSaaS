@@ -2,7 +2,7 @@
   "name": "aitoolkitsaas",
   "version": "1.0.0",
   "description": "",
-  "proxy": "https://localhost:4242",
+  "proxy": "https://127.0.0.1:8080/",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

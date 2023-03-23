@@ -19,7 +19,7 @@ import NormalWrapper from './components/routing/NormalWrapper';
 
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}`);
+const stripePromise = loadStripe(`${process.env.APPSETTING_REACT_APP_STRIPE_PUBLISHABLE_KEY}`);
 
 function App() {
   const theme = useMemo(() => createTheme(themeSettings()), []);
