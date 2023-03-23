@@ -84,7 +84,7 @@ const HomeScreen = () => {
                 </Stack>
             </Card>
 
-            <Typography fontWeight="bold" variant="h4" ml={4} mt={8} mb={2}>Image Generation</Typography>
+            <Typography fontWeight="bold" variant="h4" ml={4} mt={8} mb={2}>Image Generation Tool</Typography>
             <Card onClick={  () => navigate("/scifi-img") }
                     sx={{ ml: 4, boxShadow:2, borderRadius: 5, height:190, width:280, '&:hover': {border: 2, boxShadow: 0, borderColor:"primary.dark", cursor: "pointer"}}}>
                 <ImageSearchRoundedIcon sx={{fontSize: 80, color: "primary.main", mt: 2, ml: 2}}/>
