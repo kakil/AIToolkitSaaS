@@ -53,7 +53,9 @@ const JavascriptScreen = () => {
             </form>
             { code ? 
                 <Card sx={{mt:4, p:2, border: 1, boxShadow: 0, borderColor:"neutral.medium", borderRadius: 2, height: "500px", bgcolor: "background.default"}}>
-                    <pre><Typography>{code}</Typography></pre>
+                    <div className="code-window">
+                        <pre><Typography>{code}</Typography></pre>
+                    </div>
                 </Card>
                 : 
                 <Card sx={{mt:4, p:2, border: 1, boxShadow: 0, borderColor:"neutral.medium", borderRadius: 2, height: "500px", bgcolor: "background.default"}}>
