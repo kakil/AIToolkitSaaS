@@ -1,4 +1,7 @@
-<pre class="prettyprint linenums">name: Build and deploy Node.js app to Azure Web App - AIToolkitSaaS
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure:  https://github.com/Azure/actions
+
+name: Build and deploy Node.js app to Azure Web App - AIToolkitSaaS
 
 on:
   push:
@@ -60,4 +63,4 @@ jobs:
           app-name: 'AIToolkitSaaS'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1EA86A4C9C3C421D8C79D2AB007055E6 }}
-          package: .</pre>
+          package: .
