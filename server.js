@@ -1,5 +1,7 @@
 //connect config.env
 require('dotenv').config({ path: './config.env'});
+const applicationInsights = require("applicationinsights");
+applicationInsights.setup(process.env.APPLICATIONINSIGHTS_CONNECTION_STRING.start());
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
