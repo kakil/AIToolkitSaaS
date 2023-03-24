@@ -1,4 +1,4 @@
-<pre class="prettyprint linenums">name: Build and deploy Node.js app to Azure Web App  - AIToolkitSaaS
+<pre class="prettyprint linenums">name: Build and deploy Node.js app to Azure Web App - AIToolkitSaaS
 
 on:
   push:
