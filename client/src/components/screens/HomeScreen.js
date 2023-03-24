@@ -42,14 +42,14 @@ const HomeScreen = () => {
     }
 
     return (
-        <Box p={2}>
+        <Box p={2} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Collapse in={Boolean(error)}>
                 <Alert severity="error" sx={{mb:2}}>{error}</Alert>
             </Collapse>
             <Typography  ml={4} fontWeight="bold" variant="h4" my={2}>Text Generation</Typography>
-            <Stack direction="row" spacing={6} ml={4} >
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
                 <Card onClick={ handleCheckout }
-                        sx={{ boxShadow:2, borderRadius: 5, height:190, width:280, '&:hover': {border: 2, boxShadow: 0, borderColor:"primary.dark", cursor: "pointer"}}}>
+                        sx={{ boxShadow:2, borderRadius: 5, height:190, width:280, '&:hover': {border: 2, boxShadow: 0, borderColor:"primary.dark", cursor: "pointer"}, mb: 3, mr: 3 }}>
                     <DescriptionRoundedIcon sx={{fontSize: 80, color: "primary.main", mt: 2, ml: 2}}/>
                     <Stack p={3} pt={0}>
                         <Typography fontWeight="bold" variant="h5">Text Summarizer</Typography>
@@ -57,7 +57,7 @@ const HomeScreen = () => {
                     </Stack>
                 </Card>
                 <Card onClick={  () => navigate("/paragraph") }
-                        sx={{ boxShadow:2, borderRadius: 5, height:190, width:280, '&:hover': {border: 2, boxShadow: 0, borderColor:"primary.dark", cursor: "pointer"}}}>
+                        sx={{ boxShadow:2, borderRadius: 5, height:190, width:280, '&:hover': {border: 2, boxShadow: 0, borderColor:"primary.dark", cursor: "pointer"}, mb: 3, mr: 3 }}>
                     <FormatAlignLeftRoundedIcon sx={{fontSize: 80, color: "primary.main", mt: 2, ml: 2}}/>
                     <Stack p={3} pt={0}>
                         <Typography fontWeight="bold" variant="h5">Paragraph Generator</Typography>
@@ -72,9 +72,10 @@ const HomeScreen = () => {
                         <Typography variant="h6">Gain insight from a yoda-like virtual assistant!</Typography>
                     </Stack>
                 </Card>
-            </Stack>
+            </Box>
 
             <Typography fontWeight="bold" variant="h4" ml={4} mt={8} mb={2}>Code Generation</Typography>
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
             <Card onClick={  () => navigate("/js-convert") }
                     sx={{ ml: 4, boxShadow:2, borderRadius: 5, height:190, width:280, '&:hover': {border: 2, boxShadow: 0, borderColor:"primary.dark", cursor: "pointer"}}}>
                 <DescriptionRoundedIcon sx={{fontSize: 80, color: "primary.main", mt: 2, ml: 2}}/>
@@ -83,8 +84,9 @@ const HomeScreen = () => {
                     <Typography variant="h6">Translate english into javascript code!</Typography>
                 </Stack>
             </Card>
-
+            </Box>
             <Typography fontWeight="bold" variant="h4" ml={4} mt={8} mb={2}>Image Generation</Typography>
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
             <Card onClick={  () => navigate("/scifi-img") }
                     sx={{ ml: 4, boxShadow:2, borderRadius: 5, height:190, width:280, '&:hover': {border: 2, boxShadow: 0, borderColor:"primary.dark", cursor: "pointer"}}}>
                 <ImageSearchRoundedIcon sx={{fontSize: 80, color: "primary.main", mt: 2, ml: 2}}/>
@@ -93,6 +95,7 @@ const HomeScreen = () => {
                     <Typography variant="h6">Create a science-fiction version of an image concept!</Typography>
                 </Stack>
             </Card>
+            </Box>
         </Box>
     )
 }
