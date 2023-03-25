@@ -33,7 +33,7 @@ mongoose.set('strictQuery', true);
   })();
     
 
-const port = process.env.WEBSITES_PORT || 8080;
+const port = process.env.WEBSITES_PORT || 4242;
 app.use(express.json());
 
 //connect the routes
