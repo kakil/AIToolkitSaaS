@@ -2,7 +2,7 @@
   "name": "aitoolkitsaas",
   "version": "1.0.0",
   "description": "",
-  "proxy": "https://127.0.0.1:8080/",
+  "proxy": "https://localhost:8080/",
   "main": "server.js",
   "scripts": {
     "test": ""
