@@ -52,7 +52,7 @@ const HomeScreen = () => {
                         sx={{ boxShadow:2, borderRadius: 5, height:190, width:280, '&:hover': {border: 2, boxShadow: 0, borderColor:"primary.dark", cursor: "pointer"}, mb: 3, mr: 3 }}>
                     <DescriptionRoundedIcon sx={{fontSize: 80, color: "primary.main", mt: 2, ml: 2}}/>
                     <Stack p={3} pt={0}>
-                        <Typography fontWeight="bold" variant="h5">Text Summarizer</Typography>
+                        <Typography fontWeight="bold" variant="h5">Text Summary Generator</Typography>
                         <Typography variant="h6">Summarize long and tedious articles into just a few sentences!</Typography>
                     </Stack>
                 </Card>
