@@ -68,7 +68,7 @@ const Navbar = () => {
 
     return (
         <Box width="100%" p="1rem 6%" backgroundColor={theme.palette.background.alt} textAlign="center" sx={{boxShadow:3, mb: 2}}>
-            <Typography variant="h1" color="primary" fontWeight="bold"><Link href="/" underline="none">AI Toolkit SaaS</Link></Typography>
+            <Typography variant="h1" color="primary" fontWeight="bold"><Link href="/" underline="none">Toolkit SaaS</Link></Typography>
             { loggedIn ? 
                 <>
                     <Button onClick={createPortal} color="primary" >Billing Portal</Button>
